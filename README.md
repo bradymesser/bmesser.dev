@@ -6,7 +6,7 @@ This site was built mainly to add to my portfolio
 
 This site uses caddy for the server and ssl cert and pm2 to expose adonis.
 
-Dynamic dns is done via ddclient and namecheaps dynamic dns system (setup instructions not included).
+Dynamic dns is done via ddclient and namecheaps dynamic dns system.
 
 ## Dyanmic DNS setup
 1) Install ddclient (https://sourceforge.net/p/ddclient/wiki/Home/)
