@@ -1,0 +1,9 @@
+@tailwind base;
+
+.bgStyle {
+  @apply flex items-center w-auto bg-primary flex-col;
+}
+
+@tailwind components;
+
+@tailwind utilities;

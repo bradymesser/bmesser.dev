@@ -1,0 +1,29 @@
+{{ style('tailwind') }}
+{{ style('tailwindoutput') }}
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="flex items-center w-auto bg-primary flex-col font-mono">
+    @component('components/header')
+    @endcomponent
+    @loggedIn
+        {{--  @component('components/logout')
+        @endcomponent  --}}
+    @endloggedIn
+
+    <body>
+        <main class="w-auto h-screen">
+            <div class="flex items-center w-auto bg-primary flex-col">
+                <div class='pt-4 w-5/6'>
+                    @section('content')    
+                    @endsection
+                </div>
+
+                @component('components/footer')
+                @endcomponent
+            </div>
+        </main>
+    </body>
+</div>
