@@ -12,6 +12,7 @@ Dynamic dns is done via ddclient and namecheaps dynamic dns system.
 1) Install ddclient (https://sourceforge.net/p/ddclient/wiki/Home/)
 2) If you are presented with a guided setup for ddclient skip it or put in garbage values for required fields
 3) Edit the ddclient config file located under `/etc/ddclient.conf` using https://www.namecheap.com/support/knowledgebase/article.aspx/583/11/how-do-i-configure-ddclient/ as your guide 
+4) Follow https://www.namecheap.com/support/knowledgebase/article.aspx/595/11/how-do-i-enable-dynamic-dns-for-a-domain/ to enable dynamic DNS for your namecheap domain
 
 ## Web server setup
 1) Install caddy (https://caddyserver.com/docs/install#debian-ubuntu-raspbian)
