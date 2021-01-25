@@ -1,14 +1,43 @@
 @layout('layouts/master')
 @section('content')
 <div class='bgStyle items-center'>
+    <div class='justify-center flex w-1/2 md:w-2/5 lg:w-1/6'>
+        <img class='rounded-full ' src='selfie.png'>
+    </div>
     <div class='text-white'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <div class='justify-center text-white flex pt-3 pb-3'>
+            <hr class='w-3/4'>
+        </div>
+        My name is Brady Messer and I am a software engineer currently employed in the Greenville SC area.  I graduated from Clemson University with my Bachelors
+        of Science in Computer Science in May of 2020.  My software development career began while I was a student
+        at Clemson when I joined the universities software quality assurance team in January of 2018.  In this position I wrote unit tests 
+        as well as UI tests to ensure the stability of university developed applications.  After one year of being in QA,
+        I joined Clemson's Mobile Development team as an iOS development intern from January 2019 - September 2020. 
+        During my time as a mobile developer I worked on the native iOS app rewrite as well as a joint project
+        with the Medical University of South Carolina to create a COVID Tracing app.  In addition to these projects,
+        I also continued to write unit tests to assist the QA team, as well as developed a custom CI/CD solution. 
+        In September of 2020 I joined Logisticus as a Full Stack web developer where I am currently employed.
+        <br><br>
+        In addition to my full time work I also have taken on contract work.  The main company I have contracted
+        for is Heavy Cream.  For them, I have implemented Single Sign on as well as in app chat functionality for
+        a super secret application.  Another application I built for them is a mobile wallet pass provisioning system
+        which is used as a rewards system for an apartment complex.
     </div>
     <div class='text-white'>
         <div class='justify-center flex pt-3 pb-3'>
             <hr class='w-3/4'>
         </div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <div>
+            If you would rather read a summarized version of my experience you can view my resume
+            <a href='/resume.pdf' class='text-secondary'> here </a> 
+            or you can download it using the button below.
+        </div>
+        <div class='justify-center flex'>
+            <a href='/resume.pdf' download>
+                @component('components/button', {text: "Download Resume"})
+                @endcomponent
+            </a>
+        </div>
     </div>
 </div>
 @endsection

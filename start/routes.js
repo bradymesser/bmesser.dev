@@ -17,4 +17,5 @@
 const Route = use('Route')
 
 Route.on("/").render("home")
+Route.on("/about-this-site").render("about-this-site")
 
