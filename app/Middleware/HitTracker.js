@@ -13,7 +13,7 @@ class HitTracker {
   async handle({ request }, next) {
     const requestData = {
       date: Date.now(),
-      ip: request.ip(),
+      ip: request.header("X-Forwarded-For"), // If developing locally this won't work caddy creates this header
       page: request.url(),
     };
     await PageHit.create(requestData);

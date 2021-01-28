@@ -3,7 +3,6 @@ const SiteTraffic = use("App/Models/HitTracking");
 
 class SiteTrafficController {
   async getTrafficView({ request, response, view }) {
-    const ip = request.header("X-Forwarded-For");
     const stats = await SiteTraffic.all();
     var statDictionary = [];
     let iterableArray = [];
@@ -12,7 +11,7 @@ class SiteTrafficController {
       statDictionary[element.page]
         ? statDictionary[element.page]++
         : (statDictionary[element.page] = 1);
-      visitorDictionary[element.ip] = 1; // Value doesn't matter
+      visitorDictionary[element.ip] = 1; // Value doesn't matter, maybe add hits by user in the future then value will matter
     });
 
     // Need to find a better way to do this, edge templates don't like dictionaries
@@ -23,7 +22,7 @@ class SiteTrafficController {
     response.send(
       view.render("traffic", {
         totalTraffic: await SiteTraffic.getCount(),
-        uniqueVisitors: ip,
+        uniqueVisitors: Object.keys(visitorDictionary).length,
         siteStats: iterableArray,
       })
     );
