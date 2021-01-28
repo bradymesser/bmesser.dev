@@ -31,6 +31,4 @@ Dynamic dns is done via ddclient and namecheaps dynamic dns system.
 Until I get the CD setup this will be how deployments are done:
 
 1. SSH into the server
-2. run `git pull` on the master branch
-3. Run `pm2 ls` to list the currently running processes
-4. Run `pm2 restart {id}` where id is the id of the process given from step 2
+2. Run `make deploy`
