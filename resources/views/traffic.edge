@@ -1,0 +1,20 @@
+@layout('layouts/master')
+@section('content')
+<div class='bgStyle items-center'>
+    <div class='text-white'>Total Traffic: {{totalTraffic}}</div>
+    <table class='mt-2 text-white w-full table-auto divide-y divide-gray-200'>
+        <thead class='text-left'>
+            <th> Route </th>
+            <th> Page Traffic </th>
+        </thead>
+        <tbody>
+            @each(pageStat in siteStats)
+                <tr>
+                    <td> {{pageStat.page}} </td>
+                    <td> {{pageStat.count}} </td>
+                </tr>
+            @endeach
+        </tbody>
+    </table>
+</div>
+@endsection
