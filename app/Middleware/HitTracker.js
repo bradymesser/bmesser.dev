@@ -11,12 +11,14 @@ class HitTracker {
    * @param {Function} next
    */
   async handle({ request }, next) {
-    console.log(requestIp.getClientIp(request));
+    const tempIP = request.ip();
+    const headers = request.all();
     const requestData = {
       date: Date.now(),
       ip: request.ip(),
       page: request.url(),
     };
+    console.log(tempIP, headers);
     await PageHit.create(requestData);
     // call next to advance the request
     await next();
