@@ -2,7 +2,8 @@
 const SiteTraffic = use("App/Models/HitTracking");
 
 class SiteTrafficController {
-  async getTrafficView({ response, view }) {
+  async getTrafficView({ request, response, view }) {
+    const ip = request.header("X-Forwarded-For");
     const stats = await SiteTraffic.all();
     var statDictionary = [];
     let iterableArray = [];
@@ -22,7 +23,7 @@ class SiteTrafficController {
     response.send(
       view.render("traffic", {
         totalTraffic: await SiteTraffic.getCount(),
-        uniqueVisitors: Object.keys(visitorDictionary).length,
+        uniqueVisitors: ip,
         siteStats: iterableArray,
       })
     );
