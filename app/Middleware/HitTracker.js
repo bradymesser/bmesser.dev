@@ -3,6 +3,7 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 const PageHit = use("App/Models/HitTracking");
+const IPLog = use("App/Models/IpLog");
 
 class HitTracker {
   /**
@@ -11,13 +12,16 @@ class HitTracker {
    * @param {Function} next
    */
   async handle({ request }, next) {
-    const requestData = {
+    const page = await PageHit.findOrCreate({ page: request.url() });
+    page.count += 1;
+    await page.save();
+
+    const ipData = {
       date: Date.now(),
       ip: request.header("X-Forwarded-For"), // If developing locally this won't work caddy creates this header
-      page: request.url(),
+      pageID: page.primaryKeyValue,
     };
-    await PageHit.create(requestData);
-    // call next to advance the request
+    await IPLog.create(ipData);
     await next();
   }
 }
